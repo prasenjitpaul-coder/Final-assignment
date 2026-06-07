@@ -1,19 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <div>
-        <div className='navmain'>
-            <a>LOGO</a>
-            <div className='nav2nddiv'>
-            <p>Home</p>
-            <p>How it works</p>
-            <p>Featires</p>
-            <p>Pricing</p>
-            <button>Create Account</button>
-            </div>
-        </div>
-    </div>
+    <header className="navbar">
+      <div className="nav-container">
+        <a href="#" className="logo">LOGO</a>
+
+        <button
+          className={`nav-toggle ${isOpen ? 'opened' : ''}`}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation"
+          type="button"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <nav className={`nav-links ${isOpen ? 'active' : ''}`}>
+          <a href="#home">Home</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <button className="nav-cta">Create Account</button>
+        </nav>
+      </div>
+    </header>
   )
 }
 
